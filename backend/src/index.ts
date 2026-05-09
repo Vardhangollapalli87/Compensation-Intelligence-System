@@ -10,13 +10,15 @@ const app = express();
 const PORT = process.env.PORT ?? 4000;
 
 const allowedOrigins = (process.env.FRONTEND_URL ?? 'http://localhost:3000')
-  .split(',').map(s => s.trim());
+  .split(',')
+  .map(s => s.trim().replace(/\/$/, '')); // strip trailing slashes
 
 app.use(
   cors({
     origin: (origin, cb) => {
-      if (!origin || allowedOrigins.includes(origin)) cb(null, true);
-      else cb(new Error('CORS: origin not allowed'));
+      // allow server-to-server (no origin) and any listed origin
+      if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
+      cb(null, false);
     },
     credentials: true,
   })
