@@ -10,8 +10,8 @@ A Levels.fyi-inspired compensation intelligence platform for Indian tech compani
 
 | Service  | URL |
 |----------|-----|
-| Frontend | _deploy to Vercel — add URL here_ |
-| Backend  | _deploy to Railway — add URL here_ |
+| Frontend | https://compensation-intelligence-system-h2u1-k47bva7v3.vercel.app |
+| Backend  | https://compensation-intelligence-system-production-f4ed.up.railway.app |
 | Database | Neon PostgreSQL (serverless) |
 
 ---
